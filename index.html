@@ -42,6 +42,7 @@
             display: block; /* Visible when active */
         }
 
+        /* Publications Styling Rules */
         .pub-year {
             font-weight: bold;
             font-size: 1.2rem;
@@ -50,11 +51,23 @@
             padding-bottom: 0.25rem;
         }
         .pub-item {
-            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem; /* Creates clean spacing between lines */
+            margin-bottom: 1.5rem; /* Separates each paper cluster */
             font-size: 1.05rem;
         }
         .pub-title {
             font-weight: 500;
+            color: var(--pico-heading-color);
+        }
+        .pub-authors {
+            color: #4a4a4a; /* Muted dark gray for text hierarchy */
+        }
+        .pub-meta-line {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
         }
         .pub-journal {
             font-style: italic;
@@ -63,10 +76,13 @@
         .pub-book {
             text-decoration: underline;
         }
-        .pub-links a {
-            font-size: 0.9rem;
+        .pub-links {
+            font-size: 0.85rem;
             margin-left: 0.5rem;
             text-transform: uppercase;
+        }
+        .pub-links a {
+            margin: 0 0.2rem;
         }
         .contact-info {
             font-size: 0.95rem;
@@ -100,7 +116,7 @@
             <ul>
                 <li><a href="#" class="tab-link active" data-target="about">About</a></li>
                 <li><a href="#" class="tab-link" data-target="publications">Publications</a></li>
-                </ul>
+            </ul>
         </nav>
 
         <div id="about" class="tab-panel active">
@@ -120,26 +136,37 @@
             <div class="pub-item">
                 <span class="pub-title">The Impact of Income Smoothing on Accounting Aggregates: The Case of the Property-Casualty Industry.</span> 
                 <span class="pub-authors">Eren Cifci, Qianlong Liu, Stephen J. Mildenhall, Lars Powell, Kenny Wunder, and George Zanjani.</span> 
-                <span class="pub-journal">Journal of Risk and Insurance</span>, forthcoming.
-                <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                <div class="pub-meta-line">
+                    <span class="pub-journal">Journal of Risk and Insurance</span>, forthcoming.
+                    <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                </div>
             </div>
+            
             <div class="pub-item">
                 <span class="pub-title">Dynamic Capital Allocation in General Insurance.</span> 
                 <span class="pub-authors">Daniel Bauer, Qiheng Guo, and George Zanjani.</span> 
-                <span class="pub-journal">Journal of Risk and Insurance</span>, forthcoming.
-                <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                <div class="pub-meta-line">
+                    <span class="pub-journal">Journal of Risk and Insurance</span>, forthcoming.
+                    <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                </div>
             </div>
+            
             <div class="pub-item">
                 <span class="pub-title">Market Discipline and Government Guarantees: Evidence from the Insurance Industry.</span> 
                 <span class="pub-authors">Yiling Deng, Tyler Leverty, Kenny Wunder, and George Zanjani.</span> 
-                <span class="pub-journal">Journal of Risk and Insurance</span> (2025).
-                <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                <div class="pub-meta-line">
+                    <span class="pub-journal">Journal of Risk and Insurance</span> (2025).
+                    <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                </div>
             </div>
+            
             <div class="pub-item">
                 <span class="pub-title">Pricing Insurance Risk: Reconciling Theory and Practice.</span> 
                 <span class="pub-authors">Daniel Bauer, Richard D. Phillips, and George Zanjani.</span> 
-                <span class="pub-book">Handbook of Insurance</span>, 3rd edition (2025).
-                <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                <div class="pub-meta-line">
+                    <span class="pub-book">Handbook of Insurance</span>, 3rd edition (2025).
+                    <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                </div>
             </div>
             
             <div class="pub-year">Selected</div>
@@ -147,38 +174,55 @@
             <div class="pub-item">
                 <span class="pub-title">The Marginal Cost of Risk, Risk Measures, and Capital Allocation.</span> 
                 <span class="pub-authors">Daniel Bauer and George Zanjani.</span> 
-                <span class="pub-journal">Management Science</span> (2016).
-                <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                <div class="pub-meta-line">
+                    <span class="pub-journal">Management Science</span> (2016).
+                    <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                </div>
             </div>
+            
             <div class="pub-item">
                 <span class="pub-title">Insurance Risk, Risk Measures, and Capital Allocation: Navigating a Copernican Shift.</span> 
                 <span class="pub-authors">Michael R. Powers and George Zanjani.</span> 
-                <span class="pub-journal">Annual Review of Financial Economics</span>, (2015).
-                <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                <div class="pub-meta-line">
+                    <span class="pub-journal">Annual Review of Financial Economics</span>, (2015).
+                    <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                </div>
             </div>
+            
             <div class="pub-item">
                 <span class="pub-title">Catastrophe Bonds, Reinsurance, and the Optimal Collateralization of Risk Transfer.</span> 
                 <span class="pub-authors">Darius Lakdawalla and George Zanjani.</span> 
-                <span class="pub-journal">Journal of Risk and Insurance</span>, (2012).
-                <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                <div class="pub-meta-line">
+                    <span class="pub-journal">Journal of Risk and Insurance</span>, (2012).
+                    <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                </div>
             </div>
+            
             <div class="pub-item">
                 <span class="pub-title">Regulation, Capital, and the Evolution of Organizational Form in U.S. Life Insurance.</span> 
                 <span class="pub-authors">George Zanjani.</span> 
-                <span class="pub-journal">American Economic Review</span>, (2007).
-                <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                <div class="pub-meta-line">
+                    <span class="pub-journal">American Economic Review</span>, (2007).
+                    <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                </div>
             </div>
+            
             <div class="pub-item">
                 <span class="pub-title">Insurance, Self Protection, and the Economics of Terrorism.</span> 
                 <span class="pub-authors">Darius Lakdawalla and George Zanjani.</span> 
-                <span class="pub-journal">Journal of Public Economics</span>, (2005).
-                <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                <div class="pub-meta-line">
+                    <span class="pub-journal">Journal of Public Economics</span>, (2005).
+                    <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                </div>
             </div>
+            
             <div class="pub-item">
                 <span class="pub-title">Pricing and Capital Allocation in Catastrophe Insurance.</span> 
                 <span class="pub-authors">George Zanjani.</span> 
-                <span class="pub-journal">Journal of Financial Economics</span>, (2002).
-                <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                <div class="pub-meta-line">
+                    <span class="pub-journal">Journal of Financial Economics</span>, (2002).
+                    <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
+                </div>
             </div>
         </div>
 
