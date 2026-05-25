@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>George Zanjani (UNDER CONSTRUCTION)</title>
-    <!-- Pico.css Minimalist Framework -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <style>
         :root {
@@ -20,6 +19,29 @@
             color: #555;
             line-height: 1.6;
         }
+        
+        /* Navigation / Tabs Styling */
+        nav {
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 2rem;
+        }
+        nav a {
+            font-weight: 500;
+        }
+        nav a.active {
+            border-bottom: 2px solid var(--pico-primary);
+            color: var(--pico-primary);
+            border-radius: 0;
+        }
+
+        /* Tab Content Panel Control */
+        .tab-panel {
+            display: none; /* Hidden by default */
+        }
+        .tab-panel.active {
+            display: block; /* Visible when active */
+        }
+
         .pub-year {
             font-weight: bold;
             font-size: 1.2rem;
@@ -39,8 +61,8 @@
             color: #555;
         }
         .pub-book {
-    text-decoration: underline;
-}
+            text-decoration: underline;
+        }
         .pub-links a {
             font-size: 0.9rem;
             margin-left: 0.5rem;
@@ -56,7 +78,6 @@
 
     <main class="container" style="max-width: 800px;">
         
-        <!-- HEADER SECTION -->
         <header>
             <h1 style="margin-bottom: 0.5rem;">George Zanjani (UNDER CONSTRUCTION)</h1>
             <p>
@@ -69,34 +90,35 @@
                 Email: <a href="mailto:ghzanjani@ua.edu">ghzanjani@ua.edu</a>
             </p>
 
-            <hr />
-
-            <p>
-                I conduct research in insurance economics, risk management, and financial regulation. In particular, my work examines capital allocation methodology and market behavior under financial frictions. I have previously served as an economist at the Federal Reserve Bank of New York and as an actuary at Fireman's Fund Insurance Companies. I am a past President of the American Risk and Insurance Association (ARIA) and the Risk Theory Society.
-            </p>
-            
-            <p>
-                In addition to my academic research, I provide consulting and expert testimony for insurance litigation and rate proceedings.
-            </p>
-
             <p>
                 <a href="CV.pdf" target="_blank" role="button" class="outline" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Curriculum Vitae (PDF)</a>
                 <a href="https://scholar.google.com/citations?user=NgrE7okAAAAJ&hl=en&oi=ao" target="_blank" role="button" class="outline" style="padding: 0.5rem 1rem; font-size: 0.9rem; margin-left: 0.5rem;">Google Scholar</a>
             </p>
         </header>
 
-        <hr style="margin: 2.5rem 0;" />
+        <nav>
+            <ul>
+                <li><a href="#" class="tab-link active" data-target="about">About</a></li>
+                <li><a href="#" class="tab-link" data-target="publications">Publications</a></li>
+                </ul>
+        </nav>
 
-        <!-- RESEARCH & PUBLICATIONS SECTION -->
-        <section id="publications">
+        <div id="about" class="tab-panel active">
+            <p>
+                I conduct research in insurance economics, risk management, and financial regulation. In particular, my work examines capital allocation methodology and market behavior under financial frictions. I have previously served as an economist at the Federal Reserve Bank of New York and as an actuary at Fireman's Fund Insurance Companies. I am a past President of the American Risk and Insurance Association (ARIA) and the Risk Theory Society.
+            </p>
+            <p>
+                In addition to my academic research, I provide consulting and expert testimony for insurance litigation and rate proceedings.
+            </p>
+        </div>
+
+        <div id="publications" class="tab-panel">
             <h2>Recent and Selected Publications</h2>
 
-            <!-- 2026 and 2025 -->
             <div class="pub-year">Recent</div>
             
             <div class="pub-item">
-                <span class="pub-title">The Impact of Income Smoothing on Accounting Aggregates:
-The Case of the Property-Casualty Industry.</span> 
+                <span class="pub-title">The Impact of Income Smoothing on Accounting Aggregates: The Case of the Property-Casualty Industry.</span> 
                 <span class="pub-authors">Eren Cifci, Qianlong Liu, Stephen J. Mildenhall, Lars Powell, Kenny Wunder, and George Zanjani.</span> 
                 <span class="pub-journal">Journal of Risk and Insurance</span>, forthcoming.
                 <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
@@ -107,20 +129,19 @@ The Case of the Property-Casualty Industry.</span>
                 <span class="pub-journal">Journal of Risk and Insurance</span>, forthcoming.
                 <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
             </div>
-           <div class="pub-item">
+            <div class="pub-item">
                 <span class="pub-title">Market Discipline and Government Guarantees: Evidence from the Insurance Industry.</span> 
                 <span class="pub-authors">Yiling Deng, Tyler Leverty, Kenny Wunder, and George Zanjani.</span> 
                 <span class="pub-journal">Journal of Risk and Insurance</span> (2025).
                 <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
             </div>
-          <div class="pub-item">
+            <div class="pub-item">
                 <span class="pub-title">Pricing Insurance Risk: Reconciling Theory and Practice.</span> 
                 <span class="pub-authors">Daniel Bauer, Richard D. Phillips, and George Zanjani.</span> 
                 <span class="pub-book">Handbook of Insurance</span>, 3rd edition (2025).
                 <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
             </div>
             
-            <!-- Selected -->
             <div class="pub-year">Selected</div>
             
             <div class="pub-item">
@@ -129,53 +150,64 @@ The Case of the Property-Casualty Industry.</span>
                 <span class="pub-journal">Management Science</span> (2016).
                 <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
             </div>
-
-            <!-- PAST HIGHLIGHTS -->
-        
-
             <div class="pub-item">
                 <span class="pub-title">Insurance Risk, Risk Measures, and Capital Allocation: Navigating a Copernican Shift.</span> 
                 <span class="pub-authors">Michael R. Powers and George Zanjani.</span> 
                 <span class="pub-journal">Annual Review of Financial Economics</span>, (2015).
                 <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
             </div>
-
             <div class="pub-item">
                 <span class="pub-title">Catastrophe Bonds, Reinsurance, and the Optimal Collateralization of Risk Transfer.</span> 
                 <span class="pub-authors">Darius Lakdawalla and George Zanjani.</span> 
                 <span class="pub-journal">Journal of Risk and Insurance</span>, (2012).
                 <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
             </div>
-            
-          <div class="pub-item">
+            <div class="pub-item">
                 <span class="pub-title">Regulation, Capital, and the Evolution of Organizational Form in U.S. Life Insurance.</span> 
                 <span class="pub-authors">George Zanjani.</span> 
                 <span class="pub-journal">American Economic Review</span>, (2007).
                 <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
             </div>
-            
             <div class="pub-item">
                 <span class="pub-title">Insurance, Self Protection, and the Economics of Terrorism.</span> 
                 <span class="pub-authors">Darius Lakdawalla and George Zanjani.</span> 
                 <span class="pub-journal">Journal of Public Economics</span>, (2005).
                 <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
             </div>
-            
             <div class="pub-item">
                 <span class="pub-title">Pricing and Capital Allocation in Catastrophe Insurance.</span> 
                 <span class="pub-authors">George Zanjani.</span> 
                 <span class="pub-journal">Journal of Financial Economics</span>, (2002).
                 <span class="pub-links">[<a href="#">DOI</a>] [<a href="#">PDF</a>]</span>
             </div>
+        </div>
 
-        </section>
-
-        <!-- FOOTER -->
         <footer style="margin-top: 5rem; padding-top: 2rem; border-top: 1px solid #eee; font-size: 0.85rem; color: #777;">
             &copy; 2026 George Zanjani. Built with plain HTML & Pico.css.
         </footer>
 
     </main>
+
+    <script>
+        document.querySelectorAll('.tab-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // 1. Remove active class from all tab links
+                document.querySelectorAll('.tab-link').forEach(l => l.classList.remove('active'));
+                
+                // 2. Hide all tab content panels
+                document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+                
+                // 3. Add active class to clicked tab link
+                this.classList.add('active');
+                
+                // 4. Show the target content panel
+                const targetId = this.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
