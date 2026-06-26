@@ -119,6 +119,181 @@
                 flex-direction: column-reverse; 
                 align-items: center;
                 text-align: center;
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>George Zanjani</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        :root {
+            --pico-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --pico-typography-spacing: 1.25rem;
+        }
+        body {
+            padding: 2rem 0;
+            background-color: #fff;
+        }
+        header p {
+            font-size: 1.15rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* Profile Layout Rules */
+        .header-profile {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+        .header-text {
+            flex: 1;
+        }
+        .profile-photo {
+            width: 250px; 
+            height: auto;
+            border-radius: 8px; 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+        }
+
+        /* Navigation / Tabs Styling */
+        nav {
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 2rem;
+        }
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav a {
+            font-weight: 500;
+        }
+        nav a.active {
+            border-bottom: 2px solid var(--pico-primary);
+            color: var(--pico-primary);
+            border-radius: 0;
+        }
+
+        /* Tab Content Panel Control */
+        .tab-panel {
+            display: none; 
+        }
+        .tab-panel.active {
+            display: block; 
+        }
+
+        /* Publications & Work in Progress Styling Rules */
+        .pub-year, .section-heading {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 0.25rem;
+        }
+        .pub-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem; 
+            margin-bottom: 1.5rem; 
+            font-size: 1.05rem;
+        }
+        .pub-title {
+            font-weight: 500;
+            color: var(--pico-heading-color);
+        }
+        .pub-title a {
+            text-decoration: none;
+        }
+        .pub-title a:hover {
+            text-decoration: underline;
+        }
+        .pub-authors {
+            color: #4a4a4a; 
+        }
+        .pub-meta-line {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .pub-journal {
+            font-style: italic;
+            color: #555;
+        }
+        .pub-book {
+            font-style: italic;
+            color: #555;
+        }
+        .pub-links {
+            font-size: 0.85rem;
+            margin-left: 0.5rem;
+            text-transform: uppercase;
+        }
+        .pub-links a {
+            margin: 0 0.2rem;
+        }
+        .pub-award {
+            font-size: 0.95rem;
+            color: #d9383a;
+            font-weight: 500;
+            margin-top: 0.1rem;
+        }
+        .pub-abstract {
+            font-size: 0.95rem;
+            color: #555;
+            margin-top: 0.4rem;
+            padding-left: 1rem;
+            border-left: 2px solid #e0e0e0;
+            line-height: 1.5;
+        }
+        .contact-info {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Testimony Styling Rules */
+        .testimony-intro {
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+        .testimony-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        .testimony-card {
+            background: #fdfdfd;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 1.25rem;
+        }
+        .testimony-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+        }
+        .filing-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .filing-list li {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .filing-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Breakpoint for Mobile Layouts */
+        @media (max-width: 576px) {
+            .header-profile {
+                flex-direction: column-reverse; 
+                align-items: center;
+                text-align: center;
             }
             .profile-photo {
                 width: 150px;
@@ -161,6 +336,8 @@
             <ul>
                 <li><a href="#" class="tab-link active" data-target="about">About</a></li>
                 <li><a href="#" class="tab-link" data-target="publications">Publications</a></li>
+                <li><a href="#" class="tab-link" data-target="wip">Work in Progress</a></li>
+                <li><a href="#" class="tab-link" data-target="testimony">Testimony</a></li>
             </ul>
         </nav>
 
@@ -183,7 +360,7 @@
                 <span class="pub-authors">Eren Cifci, Qianlong Liu, Stephen J. Mildenhall, Lars Powell, Kenny Wunder, and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">Journal of Risk and Insurance</span>, forthcoming.
-                    <span class="pub-links">[<a href="#">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="#">DOI</a>] </span>
                 </div>
             </div>
             
@@ -192,7 +369,7 @@
                 <span class="pub-authors">Daniel Bauer, Qiheng Guo, and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">Journal of Risk and Insurance</span>, forthcoming.
-                    <span class="pub-links">[<a href="#">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="#">DOI</a>] </span>
                 </div>
             </div>
             
@@ -201,7 +378,7 @@
                 <span class="pub-authors">Yiling Deng, Tyler Leverty, Kenny Wunder, and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">Journal of Risk and Insurance</span>, (2025).
-                    <span class="pub-links">[<a href="https://onlinelibrary.wiley.com/doi/10.1111/jori.12493">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="https://onlinelibrary.wiley.com/doi/10.1111/jori.12493">DOI</a>] </span>
                 </div>
             </div>
             
@@ -210,7 +387,7 @@
                 <span class="pub-authors">Daniel Bauer, Richard D. Phillips, and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-book">Handbook of Insurance</span>, 3rd edition (2025).
-                    <span class="pub-links">[<a href="https://link.springer.com/chapter/10.1007/978-3-031-69674-9_11">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="https://link.springer.com/chapter/10.1007/978-3-031-69674-9_11">DOI</a>] </span>
                 </div>
             </div>
             
@@ -221,7 +398,7 @@
                 <span class="pub-authors">Daniel Bauer and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">Journal of Banking and Finance</span>, (2021).
-                    <span class="pub-links">[<a href="https://doi.org/10.1016/j.jbankfin.2021.106071">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="https://doi.org/10.1016/j.jbankfin.2021.106071">DOI</a>] </span>
                 </div>
                     <div class="pub-award">Winner of the Casualty Actuarial Society Hachemeister Prize, 2015</div>
             </div>
@@ -231,7 +408,7 @@
                 <span class="pub-authors">Daniel Bauer, Qiheng Guo, and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">Variance</span>, (2021).
-                    <span class="pub-links">[<a href="https://doi.org/10.66573/001c.29684">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="https://doi.org/10.66573/001c.29684">DOI</a>] </span>
                 </div>
             </div>
 
@@ -240,7 +417,7 @@
                 <span class="pub-authors">Daniel Bauer, Shinichi Kamiya, Xiaohu Ping, and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">Insurance: Mathematics and Economics</span>, (2019).
-                    <span class="pub-links">[<a href="https://doi.org/10.1016/j.insmatheco.2018.11.003">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="https://doi.org/10.1016/j.insmatheco.2018.11.003">DOI</a>] </span>
                 </div>
             </div>
 
@@ -249,7 +426,7 @@
                 <span class="pub-authors">Yiling Deng and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">Journal of Risk and Insurance</span>, (2018).
-                    <span class="pub-links">[<a href="https://doi.org/10.1111/jori.12186">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="https://doi.org/10.1111/jori.12186">DOI</a>] </span>
                 </div>
             </div>
 
@@ -258,7 +435,7 @@
                 <span class="pub-authors">Shinichi Kamiya and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">North American Actuarial Journal</span>, (2017).
-                    <span class="pub-links">[<a href="https://doi.org/10.1080/10920277.2017.1298450">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="https://doi.org/10.1080/10920277.2017.1298450">DOI</a>] </span>
                 </div>
             </div>
             
@@ -267,7 +444,7 @@
                 <span class="pub-authors">Daniel Bauer and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">Management Science</span>, (2016).
-                    <span class="pub-links">[<a href="https://pubsonline.informs.org/doi/10.1287/mnsc.2015.2190">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="https://pubsonline.informs.org/doi/10.1287/mnsc.2015.2190">DOI</a>] </span>
                 </div>
             </div>
             
@@ -276,7 +453,7 @@
                 <span class="pub-authors">Michael R. Powers and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">Annual Review of Financial Economics</span>, (2015).
-                    <span class="pub-links">[<a href="https://doi.org/10.1146/annurev-financial-110112-120955">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="https://doi.org/10.1146/annurev-financial-110112-120955">DOI</a>] </span>
                 </div>
             </div>
 
@@ -285,7 +462,7 @@
                 <span class="pub-authors">Tomas J. Philipson and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-book">Handbook of the Economics of Risk and Uncertainty</span>, Volume 1 (2014).
-                    <span class="pub-links">[<a href="https://doi.org/10.1016/B978-0-444-53685-3.00008-8">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="https://doi.org/10.1016/B978-0-444-53685-3.00008-8">DOI</a>] </span>
                 </div>
             </div>
             
@@ -294,7 +471,7 @@
                 <span class="pub-authors">Darius Lakdawalla and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">Journal of Risk and Insurance</span>, (2012).
-                    <span class="pub-links">[<a href="https://onlinelibrary.wiley.com/doi/10.1111/j.1539-6975.2011.01425.x">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="https://onlinelibrary.wiley.com/doi/10.1111/j.1539-6975.2011.01425.x">DOI</a>] </span>
                 </div>
             </div>
 
@@ -303,7 +480,7 @@
                 <span class="pub-authors">George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">Journal of Risk and Insurance</span>, (2010).
-                    <span class="pub-links">[<a href="https://doi.org/10.1111/j.1539-6975.2010.01354.x">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="https://doi.org/10.1111/j.1539-6975.2010.01354.x">DOI</a>] </span>
                 </div>
                 <div class="pub-award">Winner of Casualty Actuarial Society ARIA Award, 2010</div>
             </div>
@@ -313,7 +490,6 @@
                 <span class="pub-authors">J. David Cummins, Michael Suher, and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-book">Measuring and Managing Federal Financial Risk</span>, (2010).
-               <!--     <span class="pub-links">[<a href="https://doi.org/10.7208/chicago/9780226496467.003.0004">DOI</a>] [<a href="#">PDF</a>] </span> -->
                 </div>
             </div>
 
@@ -322,7 +498,6 @@
                 <span class="pub-authors">George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-book">Risking House and Home: Disasters, Cities, Public Policy</span>, (2008).
-              <!--      <span class="pub-links">[<a href="https://www.worldcat.org/title/risking-house-and-home-disasters-cities-public-policy/oclc/227205837">DOI</a>]  [<a href="#">PDF</a>] </span> -->
                 </div>
             </div>
             
@@ -331,7 +506,7 @@
                 <span class="pub-authors">George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">American Economic Review</span>, (2007).
-                    <span class="pub-links">[<a href="https://www.aeaweb.org/articles?id=10.1257/aer.97.3.973">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="https://www.aeaweb.org/articles?id=10.1257/aer.97.3.973">DOI</a>] </span>
                 </div>
             </div>
             
@@ -340,7 +515,7 @@
                 <span class="pub-authors">Darius Lakdawalla and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">Journal of Public Economics</span>, (2005).
-                    <span class="pub-links">[<a href="https://doi.org/10.1016/j.jpubeco.2004.06.008">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="https://doi.org/10.1016/j.jpubeco.2004.06.008">DOI</a>] </span>
                 </div>
             </div>
 
@@ -349,7 +524,7 @@
                 <span class="pub-authors">Darius Lakdawalla and George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">St. John’s Journal of Legal Commentary</span>, 18, pp. 463-469 (2004).
-                    <span class="pub-links"><!-- [<a href="https://heinonline.org/HOL/LandingPage?handle=hein.journals/stjohn18&div=25&id=&page=">DOI</a>] --> [<a href="https://scholarship.law.stjohns.edu/cgi/viewcontent.cgi?article=1163&context=jcred">PDF</a>] </span>
+                    <span class="pub-links">[<a href="https://scholarship.law.stjohns.edu/cgi/viewcontent.cgi?article=1163&context=jcred">PDF</a>] </span>
                 </div>
             </div>
             
@@ -358,7 +533,71 @@
                 <span class="pub-authors">George Zanjani.</span> 
                 <div class="pub-meta-line">
                     <span class="pub-journal">Journal of Financial Economics</span>, (2002).
-                    <span class="pub-links">[<a href="https://www.sciencedirect.com/science/article/pii/S0304405X02001411?via%3Dihub">DOI</a>] <!-- [<a href="#">PDF</a>] --></span>
+                    <span class="pub-links">[<a href="https://www.sciencedirect.com/science/article/pii/S0304405X02001411?via%3Dihub">DOI</a>] </span>
+                </div>
+            </div>
+        </div>
+
+        <div id="wip" class="tab-panel">
+            <h2>Work in Progress</h2>
+            
+            <div class="pub-item">
+                <span class="pub-title">
+                    <a href="https://danielbaueracademic.wordpress.com/wp-content/uploads/2026/05/bauerpowellsuzanjani2026_paper.pdf" target="_blank">Life Insurance and Annuity Pricing during the Financial Crisis, Revisited</a>
+                </span> 
+                <span class="pub-authors">Daniel Bauer, Lars Powell, Boheng Su, and George Zanjani.</span> 
+                <div class="pub-meta-line">
+                    <span class="pub-journal">Working paper</span>, 2026.
+                </div>
+                <div class="pub-abstract">
+                    <strong>Abstract:</strong> We reexamine insurance and annuity pricing during the 2008 financial crisis. We find that the existing narrative—of insurers selling policies at significant economic loss to gain statutory accounting benefits—is false. In fact, a substantial number of contracts decreased statutory capital upon sale. Instead, we show that pricing was set to produce high rates of return on capital, consistent with standard theories of pricing in the presence of financial frictions. We establish that the experience in 2008 was not extraordinary but mirrored other episodes of bond market stress where corporate borrowing rates rose quickly, such as in 1994, 1999, and 2013. A key finding across these periods is an inversion of the expected relationship between price and default risk, where—in contrast to the existing narrative—financially weaker companies quoted higher, not lower, prices than their stronger counterparts.
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <span class="pub-title">
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6797762" target="_blank">Market Discipline and Guaranty Funds in Life Insurance</a>
+                </span> 
+                <span class="pub-authors">Shinichi Kamiya, Robert W. Klein, Martin Grace, Kenny Wunder, and George Zanjani.</span> 
+                <div class="pub-meta-line">
+                    <span class="pub-journal">Working paper</span>, 2026.
+                </div>
+                <div class="pub-abstract">
+                    <strong>Abstract:</strong> This paper studies the impact of public insolvency guarantees on market discipline in the U.S. life insurance industry. We key identification to risk changes in firms operating in both protected and unprotected states. Overall, we find detectable but modest effects, with some evidence of more pronounced impact for annuities and deposits in companies with low financial ratings. We also find little evidence connecting enactments or expansions in coverage to increases in risk at either the company or state levels.
+                </div>
+            </div>
+        </div>
+
+        <div id="testimony" class="tab-panel">
+            <h2>Expert Testimony</h2>
+            <p class="testimony-intro">
+                As with my research, a good portion of my consulting work focuses on insurance pricing, specifically the margin for profit included in the rate. Calculating this margin requires understanding and estimating the cost of capital, the appropriate allocation of capital for the underlying risk, projections of investment income, and various other quantities. I help clients build and implement profit models. Provided below are publicly available examples of my expert testimony in support of profit models.
+            </p>
+
+            <div class="testimony-grid">
+                <div class="testimony-card">
+                    <h3>Massachusetts Workers Compensation Market (WCRIBMA)</h3>
+                    <p>Rate Filings:</p>
+                    <ul class="filing-list">
+                        <li><a href="https://www.wcribma.org/mass/IndustryInformation/RateFiling/2020/RateFiling2020.aspx" target="_blank">2020 Rate Filing</a></li>
+                        <li><a href="https://www.wcribma.org/mass/IndustryInformation/RateFiling/2022/RateFiling2022.aspx" target="_blank">2022 Rate Filing</a></li>
+                        <li><a href="https://www.wcribma.org/mass/IndustryInformation/RateFiling/2023/RateFiling2023.aspx" target="_blank">2023 Rate Filing</a></li>
+                        <li><a href="https://www.wcribma.org/mass/IndustryInformation/RateFiling/2024/RateFiling2024.aspx" target="_blank">2024 Rate Filing</a></li>
+                        <li><a href="https://www.wcribma.org/mass/IndustryInformation/RateFiling/2025/RateFiling2025.aspx" target="_blank">2025 Rate Filing</a></li>
+                    </ul>
+                </div>
+
+                <div class="testimony-card">
+                    <h3>North Carolina Market (NCRB)</h3>
+                    <p>Rate Filings by Line of Business:</p>
+                    <ul class="filing-list">
+                        <li><strong>Auto:</strong> <a href="https://www.ncrb.org/ncrb/Private-Passenger-Automobile/Rate-Filings" target="_blank">2019, 2023, 2025 Filings</a></li>
+                        <li><strong>Dwelling:</strong> <a href="https://www.ncrb.org/ncrb/Residential-Property/Rate-Filings" target="_blank">2019, 2020, 2022, 2023, 2025 Filings</a></li>
+                        <li><strong>Flood:</strong> <a href="https://www.ncrb.org/ncrb/Residential-Property/Rate-Filings" target="_blank">2019 Filing</a></li>
+                        <li><strong>Homeowners:</strong> <a href="https://www.ncrb.org/ncrb/Residential-Property/Rate-Filings" target="_blank">2020, 2024 Filings</a></li>
+                        <li><strong>Mobile Homeowners:</strong> <a href="https://www.ncrb.org/ncrb/Residential-Property/Rate-Filings" target="_blank">2019, 2021, 2022, 2024 Filings</a></li>
+                        <li><strong>Workers Compensation (Assigned Risk):</strong> <a href="https://www.ncrb.org/ncrb/workers-compensation/rate-filings" target="_blank">2019-2025 Filings</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
